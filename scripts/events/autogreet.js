@@ -39,7 +39,7 @@ const greetings = {
     category: "events"
   },
 
-onStart: async ({ api, args, message, event, threadsData, usersData, dashBoardData, threadModel, userModel, dashBoardModel, role, commandName }) => {
+onChat: async ({ api, args, message, event, threadsData, usersData, dashBoardData, threadModel, userModel, dashBoardModel, role, commandName }) => {
 
 cron.schedule('0 8 * * *', () => {
   sendRandomGreeting(greetings.morning);
