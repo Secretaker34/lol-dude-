@@ -36,7 +36,7 @@ module.exports = {
       }
 
 
-      const response = await axios.get(`https://sandipapi.onrender.com/gpt?prompt=${encodeURIComponent(prompt)}`);
+      const response = await axios.get(`https://openai-rest-api.vercel.app/hercai?ask=${encodeURIComponent(prompt)}`);
       const answer = response.data.answer;
 
 
