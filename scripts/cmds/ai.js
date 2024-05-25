@@ -59,7 +59,7 @@ module.exports = {
 
       const loadingMessage = getLang("loading");
       const loadingReply = await message.reply(loadingMessage);
-      const url = "https://hercai.onrender.com/v3/hercai"; // Replace with the new API endpoint
+      const url = "https://openai-rest-api.vercel.app/hercai?ask="; // Replace with the new API endpoint
       const response = await axios.get(`${url}?question=${encodeURIComponent(prompt)}`);
 
       if (response.status !== 200 || !response.data) {
@@ -68,7 +68,7 @@ module.exports = {
 
       const messageText = response.data.reply.trim(); // Adjust according to the response structure of the new API
       const userName = getLang("final");
-      const finalMsg = `${userName}\n❍━━━━━━━━━━━━━━━━━━━━❏\n${messageText}\n❍━━━━━━━━━━━━━━━━━━━━❏\n🗓️ | ⏰ 𝗗𝗔𝗧𝗘 𝗔𝗡𝗗 𝗧𝗜𝗠𝗘 :\n${formattedDateTime}`;
+      const finalMsg = `${userName}\n❍━━━━━━━━━━━━━━━━━━━━❏\n${messageText}\n❍━━━━━━━━━━━━━━━━━━━━❏\n📅 | ⏰ 𝗗𝗔𝗧𝗘 𝗔𝗡𝗗 𝗧𝗜𝗠𝗘 :\n┗➤${formattedDateTime}\n\n𝗕𝗼𝘁 𝗔𝗱𝗺𝗶𝗻: 𝖪𝗒𝗅𝖾 Bait-it\n𝗙𝗯_𝗟𝗶𝗻𝗸:https://www.facebook.com/itssmekylebaitit`;
       api.editMessage(finalMsg, loadingReply.messageID);
 
       console.log('Sent answer as a reply to user');
